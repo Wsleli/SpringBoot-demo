@@ -14,6 +14,39 @@
         <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
 
+    <!--创建多环境-->
+    <profiles>
+        <!--定义具体的环境:开发环境-->
+        <profile>
+            <!--定义环境对应的唯—名称-->
+            <id>dev</id>
+            <!--定义环境中专用的属性值-->
+            <properties>
+                <profile.active>dev</profile.active>
+            </properties>
+        </profile>
+
+        <!--定义具体的环境:生产环境-->
+        <profile>
+            <id>pro</id>
+            <properties>
+                <profile.active>pro</profile.active>
+            </properties>
+            <!--设置默认启动-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <!--定义具体的环境:测试环境-->
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.active>test</profile.active>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <!--该依赖就是在创建 SpringBoot 工程勾选的那个 Spring Web 产生的-->
         <dependency>
@@ -93,7 +126,29 @@
                 </executions>
             </plugin>
 
+            <!-- 用于给.yml文件传属性值 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <useDefaultDelimiters>true</useDefaultDelimiters>
+                    <!-- 配置 Maven 资源过滤 -->
+                    <filters>
+                        <filter>src/main/resources/filters/filter.properties</filter>
+                    </filters>
+                </configuration>
+            </plugin>
         </plugins>
+
+        <!-- 确保资源过滤生效 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>

@@ -1,13 +1,24 @@
-lesson: SpringBoot
+# 设置启用的环境
+spring:
+  profiles:
+    active: ${profile.active}
 
+---
+# 开发
+spring:
+  profiles: dev
 server:
-  port: 8080
-
-enterprise:
-  name: wsleli
-  age: 16
-  tel: 4006184000
-  subject:
-    - Java
-    - 前端
-    - 大数据
+  port: 80
+---
+# 生产
+spring:
+  profiles: pro
+server:
+  port: 81
+---
+# 测试
+spring:
+  profiles: test
+server:
+  port: 82
+---
