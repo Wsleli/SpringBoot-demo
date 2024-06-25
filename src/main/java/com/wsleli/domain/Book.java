@@ -4,12 +4,12 @@ package com.wsleli.domain;
  * @Description: 功能描述
  * @Version: 1.0
  * @Author: Wsleli Wiliams
- * @Date: 2024/06/25 17:36
+ * @Date: 2024/06/14 15:56
  */
 public class Book {
     private Integer id;
-    private String name;
     private String type;
+    private String name;
     private String description;
 
     public Integer getId() {
@@ -20,20 +20,20 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -48,8 +48,8 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

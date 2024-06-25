@@ -1,3 +1,7 @@
+# TODO 配置数据源相关信息
+server:
+  port: 8080
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
