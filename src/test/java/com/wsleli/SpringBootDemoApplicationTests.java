@@ -1,6 +1,7 @@
 package com.wsleli;
 
-import com.wsleli.service.BookService;
+import com.wsleli.dao.BookDao;
+import com.wsleli.domain.Book;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,10 +10,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class SpringBootDemoApplicationTests {
 
     @Autowired
-    private BookService bookService;
+    private BookDao bookDao;
 
     @Test
-    public void save() {
-        bookService.save();
+    void testGetById() {
+        Book book = bookDao.getById(1);
+        System.out.println(book);
     }
 }
